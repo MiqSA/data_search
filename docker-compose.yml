@@ -3,7 +3,7 @@ version: "3.9"
 services:
   app:
     build:
-      context: "./app"
+      context: "."
     env_file: .env
     volumes:
       - ./app/:/usr/app/
