@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   app:
+    container_name: API_data_search
     build:
       context: "."
     env_file: .env
@@ -16,6 +17,7 @@ services:
     expose:
      - 8000
   database:
+    container_name: DB_data_search
     image: mysql
     restart: always
     environment:
@@ -28,7 +30,22 @@ services:
     ports:
       - "3306:3306"
     expose:
-      - 3306 
+      - 3306
+  test-database:
+    container_name: Test_DB_data_search
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: v25xhycLlRY3sV7Z
+      MYSQL_DATABASE: "test_exercise"
+    volumes:
+      - ./database/initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - production-network
+    ports:
+      - "3307:3306"
+    expose:
+      - 3306
 networks:
   production-network:
     driver: bridge
