@@ -10,17 +10,18 @@ def create_app(config_mode):
 
     from flask_apispec.extension import FlaskApiSpec
     from api import api as api_blueprint
-    from api.views import hello
+    from api.views import get_info
     from main import main as main_blueprint
-    from main.views import upload_json
+    from main.views import upload, upload_informations
 
     docs = FlaskApiSpec(app)
 
     app.register_blueprint(main_blueprint, url_prefix='')
     app.register_blueprint(api_blueprint, url_prefix='/v1.0')
 
-    docs.register(upload_json, blueprint='main')
-    docs.register(hello, blueprint='api')
+    docs.register(upload, blueprint='main')
+    docs.register(upload_informations, blueprint='main')
+    docs.register(get_info, blueprint='api')
 
     db.init_app(app)
     return app

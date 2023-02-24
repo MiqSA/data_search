@@ -10,7 +10,7 @@ class Data(db.Model):
 
     def __init__(self, uri, title, date_added):
         self.url = uri
-        self.title = title.lower()
+        self.title = title
         self.date_added = date_added
     
     def save(self):

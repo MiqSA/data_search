@@ -15,7 +15,7 @@ def client():
         
     yield testing_client
         
-    with app.app_context():
-        session = db.session
-        session.execute(text('DELETE FROM data'))
-        session.commit()
+    # with app.app_context():
+    #     session = db.session
+    #     session.execute(text('DELETE FROM data'))
+    #     session.commit()

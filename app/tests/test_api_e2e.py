@@ -8,7 +8,7 @@ def test_success_api(client):
             "date_0", "date_1"
         ],
         "title": "My title",
-        "url": "My URL"
+        "uri": "My URL"
         }
     response = client.post('/v1.0/', json=payload)
 
