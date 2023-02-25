@@ -5,7 +5,7 @@ def test_handler_error_422(client):
     payload={
     "name": "Flask",
     "theme": "dark"}
-    response = client.post('/v1.0/', json=payload)
+    response = client.post('/v1.0', json=payload)
 
     assert response.status_code == 422
     response_data = json.loads(response.data)
