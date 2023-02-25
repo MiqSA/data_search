@@ -1,6 +1,8 @@
 from tests.conftest import client
 import json
 import os
+import pytest
+
 
 def test_success_upload_informations(client):
     payload={
@@ -15,7 +17,7 @@ def test_success_upload_informations(client):
     assert response_data['message'] == 'Success!'
     assert response_data['results'][0] == 'Add informations in database with success!'
 
-
+@pytest.fixture(autouse=True)
 def test_success_upload_file(client):
     filename = 'input/data.json'
     with open(filename, 'rb') as file:

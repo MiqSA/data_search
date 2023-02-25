@@ -7,11 +7,13 @@ class DateTransform:
             0: r"([A-Za-z]* \d{2} \d{4})",
             1: r"(\d{2} [A-Za-z]* \d{4})",
             2: r"(\d{4}-\d{2}-\d{2}T\w+)",
-            3: r"([A-Za-z]* \d{2})"}
+            3: r"(\d{4}-\d{2}-\d{2} \w+)",
+            4: r"([A-Za-z]* \d{2})"}
         self.formats = [
             '%B %d %Y',
             '%d %b %Y',
             ['%Y-%m-%dT%H', '%Y-%m-%dT%H:%M:%S'],
+            '%Y-%m-%d %H:%M:%S',
             '%b %d']
         self.date = date
 
